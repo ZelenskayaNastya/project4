@@ -3,16 +3,22 @@ print('Введите слово из списка букв: А Е Н О С Т')
 foo = ['А','Е','Н','О','С','Т']
 y = random.sample(foo, 4)
 word = (''.join(y))
-print(word)
+
 
 option = []
 i = 1
 D = 0
 B = 0
 while word != option:
+    print()
     print('Попытка №', i)
     option = input()
     option = option.upper()
+    T = 0
+    for y in option:
+        if y == word[0] or y == word[1] or \
+                y == word[2] or y == word[3]:
+            T += 1
     i += 1
     D = 0
     B = 0
@@ -36,6 +42,6 @@ while word != option:
     else:
         B += 1
     print('На "своем месте":', D)
-    print('На "чюем месте":', B)
+    print('На "чужем месте":', T - D)
 if word == option:
     print('Вы выиграли!')
